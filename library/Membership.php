@@ -1,17 +1,15 @@
 <?php
+// WE COULD TRY ADDING A LARGER BOOK ALLOWANCE FOR VIP MEMBERS
 
 namespace library;
 
-require_once('library/Member.php'); 
-use library\Member;
+Class VIPmember extends Member {
 
-class VIPMember extends Member {
-   
-    public function ShowVIP ($firstname) {
-        if($this->$firstname !=$firstname)
-        {die($firstname . " isn't a VIP member");}
-        echo $firstname . " is a VIP member"; 
-            
+    public function showVip($firstname) {
+        if ($this->firstname != $firstname) {
+            die($firstname . " isn't a VIP member");
+        }
+        echo $firstname . " is a VIP member";
     }
-    
+
 }
