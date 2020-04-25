@@ -1,9 +1,15 @@
 <?php
+
 // WE COULD TRY ADDING A LARGER BOOK ALLOWANCE FOR VIP MEMBERS
 
 namespace library;
 
-Class VIPmember extends Member {
+Class VIPborrower extends Borrower {
+
+    public function setFirstName($firstname) {
+        $this->firstname = $firstname;
+        ;
+    }
 
     public function showVip($firstname) {
         if ($this->firstname != $firstname) {

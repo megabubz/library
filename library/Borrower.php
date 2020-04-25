@@ -2,7 +2,18 @@
 
 namespace library;
 
-class Member {
+// abstract class that's above everything -- the idea of a 'person'/'user'
+// user
+// user --- borrower --> vipmember    ---------- borrowable();      returnable();   allowable/extendable/upgradeable/
+// user -- librarian                  ---------- waiveable();  cancellable(); 
+
+
+abstract class User {
+
+    abstract public function setFirstName($firstname);
+}
+
+class Borrower extends User {
 
     // THE MEMBER HAS A CART
     protected $userid;
@@ -27,11 +38,11 @@ class Member {
     public function getCart() {
         return $this->cart;
     }
-    
+
     public function getFirstName() {
         return $this->firstname;
     }
-
+    
     public function checkFirstName() {
         if (empty($this->firstname)) {
             die('NEED A FIRSTNAME!');
@@ -39,7 +50,7 @@ class Member {
         echo $this->firstname;
     }
 
-    public function updateFirstName($firstname) {
+    public function setFirstName($firstname) {
         return $this->firstname = $firstname;
     }
 
@@ -50,7 +61,4 @@ class Member {
         echo $firstname . " exists";
     }
 
-     
 }
-
-

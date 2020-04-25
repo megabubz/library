@@ -1,12 +1,12 @@
 <?php
 
-require 'library/Member.php';
-require 'library/Membership.php';
+require 'library/Borrower.php';
+require 'library/VIPborrower.php';
 require 'library/Book.php';
 require 'library/Cart.php';
 
-use library\Member;
-use library\VIPmember;
+use library\Borrower;
+use library\VIPborrower;
 use library\Book;
 use library\Cart;
 
@@ -24,7 +24,7 @@ $book2 = new Book(2, "1984", "George Orwell", "Science Fiction", 14, 5);
 $member1Cart = new Cart();
 
 // 2. Create a Member and assign their attributes
-$member1 = new Member(1, 'Sam', 'Smith', '08/08/1990', 'samsmith@gmail.com', $member1Cart);
+$member1 = new Borrower(1, 'Sam', 'Smith', '08/08/1990', 'samsmith@gmail.com', $member1Cart);
 
 // 3. Get the Member's Cart and add Book to it
 $member1->getCart()->addBooks($book1);
@@ -36,8 +36,7 @@ echo($member1->getFirstName() . " has added " . $member1->getCart()) . " to thei
 
 // UPDATE MEMBER'S NAME -----------------------------------------------------------------------
 
-echo $member1->getFirstName() . "'s first name has updated to " . $member1->updatefirstname('Samantha') . PHP_EOL . PHP_EOL;
-
+echo $member1->getFirstName() . "'s first name has updated to " . $member1->setFirstName('Samantha') . PHP_EOL . PHP_EOL;
 
 
 // ECHO THE BOOK'S CONSTANT VALUE -----------------------------------------------------------------------
@@ -48,13 +47,16 @@ echo "All books have a constant: " . $book1::label . PHP_EOL . PHP_EOL;
 
 // UPDATE BOOK QUANTITY -----------------------------------------------------------------------
 
-echo $book1->updateBookTitle("Wintertime") . PHP_EOL . PHP_EOL;
-echo $book1->updateQuantity(5, "+") . PHP_EOL . PHP_EOL;
-echo "Book quantity value is still " .  $book1->quantity . PHP_EOL . PHP_EOL;
+echo $book1->setBookTitle("Wintertime") . PHP_EOL . PHP_EOL;
+
+echo $book1->getBookTitle(); 
+
+echo $book1->setQuantity(5, "+") . PHP_EOL . PHP_EOL;
+echo "Book quantity value is still " .  $book1->getQuantity() . PHP_EOL . PHP_EOL;
 
 
 // SEE IF SOMEONE IS A VIP MEMBER ----------------------------------------------------------
 
 $member2cart = new Cart(); 
-$member2 =  new VIPmember(2, 'Sarah', 'Gartner', '1999/05/11', 'sarah@live.co.uk', $member2cart); 
+$member2 =  new VIPborrower(2, 'Sarah', 'Gartner', '1999/05/11', 'sarah@live.co.uk', $member2cart); 
 echo $member2->showVip('Sarah');
