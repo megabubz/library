@@ -1,14 +1,15 @@
 <?php
 
-namespace library;
+namespace domain;
 
-interface MakeaBook {
-
+interface createBook {
     public function setBookTitle($title);
+    public function getBookTitle();
     public function setQuantity($quantity, $operation);
+    public function getQuantity();
 }
 
-class Book implements MakeaBook {
+class Book implements createBook {
 
     private $bookid;
     private $title;
@@ -18,7 +19,7 @@ class Book implements MakeaBook {
     private $quantity;
     
     const baseallowance = 5;
-    const label = "AmazingLibrary";
+    const label = "Amazing Library";
 
     public function __construct($bookid, $title, $author, $genre, $loanlength, $quantity) {
         $this->bookid = $bookid;

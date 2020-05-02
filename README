@@ -1,0 +1,35 @@
+-----------------------------------------------------------------------------------
+NOTES
+-----------------------------------------------------------------------------------
+
+abstract class that's above everything is the idea of a 'person'/'user'
+// user
+// user --- borrower --> student  
+// user -- librarian  
+
+
+
+----------------------------------------
+AUTOLOADER - THINGS CLAUD TRIED
+----------------------------------------
+
+spl_autoload_register(function($className) {
+
+	$className = str_replace("\\", DIRECTORY_SEPARATOR, $className);
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/domain/' . $className . '.php';
+
+});
+
+function myAutoLoader() {
+    $path = 'domain/'; 
+    $extension = '.php'; 
+    $fullPath = $path . $classname . $extension; 
+    include_once $fullPath;
+
+    require "${classname}.php";
+
+}
+
+spl_autoload_register(function($classname){
+    include_once "./domain/" . $classname . ".php";
+}); 
