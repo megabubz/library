@@ -8,6 +8,8 @@
         <!-- Bootstrap CSS -->
         <link href="css/bootstrap.bundle.min.js.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <!--a-->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!--     My Style Sheet          -->
         <link href="css/signin.css" rel="stylesheet" type="text/css"/>
@@ -21,7 +23,10 @@
                     <div class="card card-signin my-5">
                         <div class="card-body">
                             <h5 class="card-title text-center">Sign In</h5>
-                            <form class="form-signin">
+                            
+<!--  Added a POST request from Exercise 15 form example <form action="signin.php" method="POST">     --> 
+
+                            <form action="signin.php" method="POST" class="form-signin">
                                 <div class="form-label-group">
                                     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                                     <label for="inputEmail">Email address</label>
@@ -42,6 +47,7 @@
                                 <a class="d-block text-center mt-2 small" href="membership.php">Create Account</a>
                                 <a class="d-block text-center mt-2 small" href="home.php">Return to home page</a>
                             </form>
+                            
                         </div>
                     </div>
                 </div>
