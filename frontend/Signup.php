@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 
 <html>
     <head>
@@ -23,7 +26,9 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-center">Register</h5>
-                            <form class="form-signin">
+
+
+                            <form action="" method="POST" class="form-signin">
                                 <div class="form-label-group">
                                     <input type="text" id="inputFirstname" class="form-control" placeholder="First name" required autofocus>
                                     <label for="inputFirstname">Firstname</label>
@@ -66,6 +71,28 @@
                                     <p class="font-weight-light">By creating an account, you agree to our Terms of Use and Privacy Policy </p>
                                 </div>
                             </form>
+
+                            <?php
+                            if (!empty($_POST)) {
+                                $_SESSION["inputFirstname"] = $_POST['inputFirstname'];
+                                $_SESSION["inputLastname"] = $_POST['inputLastname'];
+                                $_SESSION["inputPassword"] = $_POST['inputPassword'];
+                                $_SESSION["inputEmail"] = $_POST['inputEmail'];
+                                $_SESSION["inputDoB"] = $_POST['inputDoB'];
+                                
+                                 // if it's not empty, check against the database
+                                
+                            }
+
+                            else {
+                                
+                                //check if it's empty, write a message that says you must fill all fields in
+                                
+                            }
+                          
+                            
+                            
+                            ?>
                         </div>
                     </div>
                 </div>
